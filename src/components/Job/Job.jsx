@@ -2,10 +2,12 @@
 
 import { GrLocation } from "react-icons/gr";
 import { AiOutlineDollarCircle } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 
 const Job = ({ job }) => {
   const {
+    id,
     logo,
     job_title,
     company_name,
@@ -17,8 +19,8 @@ const Job = ({ job }) => {
 
 
   return (
-    <div>
-      <div className="card card-compact w-[500px] h-[300px] bg-base-100 shadow-xl">
+    <div className="mt-8 mb-8">
+      <div className="card card-compact w-[500px] h-[320px] bg-slate-300 shadow-xl">
         <figure className="mt-4">
           <img src={logo} alt="Jobs" />
         </figure>
@@ -33,18 +35,20 @@ const Job = ({ job }) => {
               {job_type}
             </button>
           </div>
-          <div className="flex items-center  gap-4">
+          <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <GrLocation className="text-xl"></GrLocation>
               <p className="text-lg font-semibold">{location}</p>
             </div>
             <div className="flex items-center gap-2">
-             <AiOutlineDollarCircle className="text-xl"></AiOutlineDollarCircle>
-             <p className="text-lg font-semibold"> Salary: {salary}</p>
+              <AiOutlineDollarCircle className="text-xl"></AiOutlineDollarCircle>
+              <p className="text-lg font-semibold"> Salary: {salary}</p>
             </div>
           </div>
           <div className="card-actions">
-            <button className="btn btn-primary mt-2">View Details</button>
+            <Link to={`/job/${job.id}`}>
+              <button className="btn btn-primary mt-2">View Details</button>
+            </Link>
           </div>
         </div>
       </div>
