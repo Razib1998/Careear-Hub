@@ -6,6 +6,9 @@ import {
 } from "react-icons/ai";
 import { FiBookOpen } from "react-icons/fi";
 import { GrLocation } from "react-icons/gr";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { saveJobApplication } from "../../Utility/LocalStorage";
 
 const JobDetails = () => {
   const jobs = useLoaderData();
@@ -13,6 +16,11 @@ const JobDetails = () => {
   const idInt = parseInt(id);
   const job = jobs.find((job) => job.id === idInt);
   console.log(job, id);
+
+  const handleApplyJob = () =>{
+    saveJobApplication(idInt);
+    toast('You have successfully apply the job')
+  }
   return (
     <div>
       <div className="hero h-[300px] w-[1190px]  bg-base-200 mb-2">
@@ -107,12 +115,13 @@ const JobDetails = () => {
             </div>
           </div>
           <Link>
-            <button className="btn btn-primary w-full ml-6 mt-4">
+            <button onClick={handleApplyJob} className="btn btn-primary w-full ml-6 mt-4">
               Apply Now
             </button>
           </Link>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

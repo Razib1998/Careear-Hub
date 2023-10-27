@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 
+
 const Header = () => {
 
     const links = (
@@ -55,9 +56,10 @@ const Header = () => {
           {links}
         </ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="navbar-end mr-10">
+        <a className="btn">Start Applying</a>
       </div>
+      
     </div>
   );
 };
