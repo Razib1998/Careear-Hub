@@ -21,9 +21,11 @@ const Feature = () => {
             need. Its your future
           </p>
         </div>
-         {
-            jobs.map(job => <Job key={job.id} job={job}></Job>)
-         }
+        <div className="grid grid-cols-2 gap-6">
+          {jobs.map((job) => (
+            <Job key={job.id} job={job}></Job>
+          ))}
+        </div>
       </div>
     );
 };
