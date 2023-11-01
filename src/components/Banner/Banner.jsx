@@ -1,7 +1,7 @@
 const Banner = () => {
   return (
     <div className="mb-6">
-      <div className="hero w-[1100px]  bg-base-200">
+      <div className="hero w-[1100px]  bg-slate-200">
         <div className="hero-content  flex-col justify-between lg:flex-row-reverse">
           <img src={"user.png"} className="max-w-sm rounded-lg shadow-xl ml-12" />
           <div className="mr-36">

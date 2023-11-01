@@ -15,6 +15,7 @@ const Feature = () => {
 
     return (
       <div>
+        
         <div className="text-center">
           <h2 className="text-5xl font-bold">Featured Jobs</h2>
           <p className="text-xl mt-4">
@@ -22,6 +23,8 @@ const Feature = () => {
             need. Its your future
           </p>
         </div>
+        {/* job filtering */}
+        
         <div className="grid grid-cols-2 gap-2">
           {jobs.slice(0, dataLength).map((job) => (
             <Job key={job.id} job={job}></Job>

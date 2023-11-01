@@ -39,9 +39,6 @@ const AppliedJobCard = ({ job }) => {
               <p className="text-lg font-semibold"> Salary: {salary}</p>
             </div>
           </div>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">View Details</button>
-          </div>
         </div>
       </div>
     </div>
