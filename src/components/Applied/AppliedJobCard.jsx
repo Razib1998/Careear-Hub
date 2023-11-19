@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { GrLocation } from "react-icons/gr";
 import { AiOutlineDollarCircle } from "react-icons/ai";
+import { Helmet } from "react-helmet-async";
 
 const AppliedJobCard = ({ job }) => {
   const {
@@ -14,6 +15,9 @@ const AppliedJobCard = ({ job }) => {
   } = job;
   return (
     <div>
+      <Helmet>
+        <title>Career Hub | Applied jobs</title>
+      </Helmet>
       <div className="card card-side bg-base-100 shadow-xl">
         <figure className="bg-slate-100 shadow-lg p-6 ml-4">
           <img src={logo} alt="Movie" />

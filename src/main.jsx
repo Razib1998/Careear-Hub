@@ -7,6 +7,10 @@ import Home from './components/Home/Home';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import Applied from './components/Applied/Applied';
 import JobDetails from './components/JobDetails/JobDetails';
+import { HelmetProvider } from 'react-helmet-async';
+import Login from './components/Header/Login/Login';
+import Register from './components/Header/Register/Register';
+import ContextProvider from './Context/ContextProvider';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +21,14 @@ const router = createBrowserRouter([
   {
     path: '/',
     element:<Home></Home>
+  },
+  {
+    path: "/login",
+    element:<Login></Login>,
+  },
+  {
+    path: "/register",
+    element:<Register></Register>
   },
   {
     path: '/applied',
@@ -34,6 +46,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ContextProvider>
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
+    </ContextProvider>
   </React.StrictMode>
 );

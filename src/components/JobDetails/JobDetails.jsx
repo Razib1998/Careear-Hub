@@ -9,6 +9,7 @@ import { GrLocation } from "react-icons/gr";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { saveJobApplication } from "../../Utility/LocalStorage";
+import { Helmet } from "react-helmet-async";
 
 const JobDetails = () => {
   const jobs = useLoaderData();
@@ -23,6 +24,9 @@ const JobDetails = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>Career Hub | job-Details</title>
+      </Helmet>
       <div className="hero h-[300px] w-[1190px]  bg-base-200 mb-2">
         <div className="hero-content text-center">
           <div className="max-w-md">
