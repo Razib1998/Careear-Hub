@@ -1,24 +1,41 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { myContext } from "../../Context/ContextProvider";
 
 
 const Header = () => {
 
+  const {logOut, user} = useContext(myContext);
+
+  const handleLogOut = () =>{
+    logOut()
+    .then(()=>{
+      console.log("user Logged out")
+    })
+    .catch(error => {
+      console.log(error)
+    })
+   
+  }
+
     const links = (
       <>
         <li>
-          <NavLink to={'/'}>Home</NavLink>
+          <NavLink to={"/"}>Home</NavLink>
         </li>
         <li>
-          <NavLink to={'/jobs'}>Jobs</NavLink>
+          <NavLink to={"/jobs"}>Jobs</NavLink>
+        </li>
+        
+          <li>
+            <NavLink to={"/applied"}>Applied Jobs</NavLink>
+          </li>
+   
+        <li>
+          <NavLink to={"/statistics"}>Statistics</NavLink>
         </li>
         <li>
-            <NavLink to={'/applied'}>Applied Jobs</NavLink>
-        </li>
-        <li>
-            <NavLink to={'/statistics'}>Statistics</NavLink>
-        </li>
-        <li>
-            <NavLink to={'/blog'}>Blog</NavLink>
+          <NavLink to={"/blog"}>Blog</NavLink>
         </li>
       </>
     );
@@ -55,9 +72,18 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end mr-10">
-        <Link to={"/login"}>
-          <button className="btn">Login</button>
-        </Link>
+        {user ? (
+          <>
+            <p>{user.email}</p>
+            <button onClick={handleLogOut} className="btn">
+              Logout
+            </button>
+          </>
+        ) : (
+          <Link to={"/login"}>
+            <button className="btn">Login</button>
+          </Link>
+        )}
       </div>
     </div>
   );

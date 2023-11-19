@@ -1,17 +1,27 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { myContext } from "../../../Context/ContextProvider";
 
 const Login = () => {
 
-    const info = useContext(myContext);
-    console.log(info)
+    const {signIn}= useContext(myContext);
+    const navigate = useNavigate()
+    
 
     const handleLogin = (e) => {
       e.preventDefault();
       const email = e.target.email.value;
       const password = e.target.password.value;
       console.log( email, password);
+      signIn(email,password)
+      .then(result=>{
+      e.target.reset()
+      navigate("/")
+      console.log(result.user)
+      })
+      .catch(error =>{
+        console.error(error)
+      })
     };
   return (
     <div className="hero min-h-screen bg-base-200">
